@@ -26,14 +26,14 @@
 
       # ---- NixOS hosts ----
       nixosConfigurations = {
-        framework13 = unstablePkgs.lib.nixosSystem {
+        framework13 = nixpkgs-unstable.lib.nixosSystem {
           inherit unstablePkgs;
           modules = [
             ./Config/default.nix
             ./Config/Hosts/framework13.nix
           ];
         };
-        pi-deck = unstablePkgs.lib.nixosSystem {
+        pi-deck = nixpkgs-unstable.lib.nixosSystem {
           system = "aarch64-linux";  # Pi architecture
           inherit unstablePkgs;
           modules = [
