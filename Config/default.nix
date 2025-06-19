@@ -8,8 +8,7 @@
     wget
     # Development tools
     gcc
-    make
-    python3
+
     # Add more packages as needed
   ];
 }
