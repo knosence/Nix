@@ -42,7 +42,7 @@
       # ---- NixOS hosts ----
       nixosConfigurations = {
         framework13 = nixpkgs-stable.lib.nixosSystem {
-          inherit system pkgs;
+          inherit pkgs;
           modules = [
             ./Config/default.nix
             ./Config/Hosts/framework13.nix
@@ -61,7 +61,7 @@
       # ---- Home-manager profile ----
       homeConfigurations = {
         knosence = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
+          inherit pkgs;
           modules = [
             ./Home/default.nix
             ./Home/Users/knosence.nix
