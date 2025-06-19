@@ -1,7 +1,10 @@
+{ config, pkgs, ... }:
 {
-  import = [
-    
+  imports = [
+
   ];
+
+
   home.packages = with pkgs; ([  
 
   ]);
