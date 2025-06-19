@@ -45,9 +45,6 @@
     #media-session.enable = true;
   };
 
-  services.dhcpcd = {
-    enablePrivSep = true; # or false, depending on your requirements
-  };
 
 
 }
