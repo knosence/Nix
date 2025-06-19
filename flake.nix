@@ -36,8 +36,6 @@
       overlays = [ stylix.overlay ];
     };
 
-    stylix = stylix.homeModules.stylix;
-
     # 2. Merge: unstable overrides, stable provides the holes
     pkgs = stablePkgs // unstablePkgs;
   in {
