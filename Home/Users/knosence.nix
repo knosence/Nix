@@ -16,7 +16,7 @@ let
 in{
   import = [
     ./../Packages 
-    ./../Packages/doom-emacs.nix
+    #./../Packages/doom-emacs.nix
     
     #./../Modules/
   ];
