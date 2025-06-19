@@ -67,7 +67,7 @@
           modules = [
             ./Home/default.nix
             ./Home/Users/knosence.nix
-            stylix = stylix.homeModules.stylix;
+            stylix = stylix.homeModules.stylix
           ];
         };
       };
