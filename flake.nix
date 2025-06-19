@@ -13,7 +13,7 @@
     };
 
     # extra overlays
-    # stylix     = { url = "github:danth/stylix"; };
+    stylix     = { url = "github:danth/stylix"; };
     # orca-slicer = { /* your orca-slicer flake URL here */ };
 
     #doom-emacs = {
@@ -22,7 +22,7 @@
     #};
   };
 
-  outputs = { self, nixpkgs-stable, nixpkgs-unstable, home-manager, ...}:
+  outputs = { self, nixpkgs-stable, nixpkgs-unstable, stylix, home-manager, ...}:
   let
     system = "x86_64-linux";
 
@@ -65,7 +65,7 @@
           modules = [
             ./Home/default.nix
             ./Home/Users/knosence.nix
-            #stylix.homeModules.stylix
+            stylix.homeModules.stylix
           ];
         };
       };
