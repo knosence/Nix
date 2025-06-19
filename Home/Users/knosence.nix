@@ -14,7 +14,8 @@ let
   userDirectory = "/home/${userName}";
 
 in{
-  import = [
+
+  imports = [
     ./../Packages 
     #./../Packages/doom-emacs.nix
     
