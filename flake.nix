@@ -36,13 +36,15 @@
       overlays = [ stylix.overlay ];
     };
 
+    stylix = stylix.homeManagerModules.stylix
+
     # 2. Merge: unstable overrides, stable provides the holes
     pkgs = stablePkgs // unstablePkgs;
   in {
       # ---- NixOS hosts ----
       nixosConfigurations = {
         framework13 = nixpkgs-stable.lib.nixosSystem {
-          inherit system pkgs;
+          inherit system pkgs stylix;
           modules = [
             ./Config/default.nix
             ./Config/Hosts/framework13.nix
@@ -50,7 +52,7 @@
         };
         pi-deck = nixpkgs-stable.lib.nixosSystem {
           system = "aarch64-linux";  # Pi architecture
-          inherit pkgs;
+          inherit pkgs stylix;
           modules = [
             ./Config/default.nix
             ./Config/Hosts/pi-deck.nix
@@ -61,7 +63,7 @@
       # ---- Home-manager profile ----
       homeConfigurations = {
         knosence = home-manager.lib.homeManagerConfiguration {
-          inherit system pkgs;
+          inherit system pkgs stylix;
           modules = [
             ./Home/default.nix
             ./Home/Users/knosence.nix
