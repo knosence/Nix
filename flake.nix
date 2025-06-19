@@ -22,7 +22,7 @@
     };
   };
 
-  outputs = { self, nixpkgs-stable, nixpkgs-unstable, stylix, doom-emacs, … }:
+  outputs = { self, nixpkgs-stable, nixpkgs-unstable, stylix, doom-emacs, home-manager, ...}:
   let
     system = "x86_64-linux";
 
