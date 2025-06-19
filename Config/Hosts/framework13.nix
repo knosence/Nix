@@ -30,7 +30,7 @@ in {
       ./../Modules/services.nix
     ];
 
-    boot.kernelPackages.firmwarePackages = dropRTW88;
+    environment.systemPackages = dropRTW88;
 
     users.users.${userName} = {
       isNormalUser = true;
