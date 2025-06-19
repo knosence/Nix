@@ -48,7 +48,6 @@
           modules = [
             ./Config/default.nix
             ./Config/Hosts/framework13.nix
-            stylix = stylix.homeModules.stylix;
           ];
         };
         pi-deck = nixpkgs-stable.lib.nixosSystem {
@@ -57,7 +56,6 @@
           modules = [
             ./Config/default.nix
             ./Config/Hosts/pi-deck.nix
-            stylix = stylix.homeModules.stylix;
           ];
         };
       };
