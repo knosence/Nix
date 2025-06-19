@@ -2,8 +2,6 @@
   description = "Multi-host Nix flake for knosence";
 
   inputs = {
-    # two channels of nixpkgs
-    nixpkgs-stable = { url = "github:NixOS/nixpkgs/nixos-24.05"; };
     nixpkgs-unstable = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
 
     # home-manager tied to stable
@@ -12,32 +10,21 @@
       inputs.nixpkgs.follows = "nixpkgs-stable";
     };
 
-    # extra overlays
-    # stylix     = { url = "github:danth/stylix"; };
-    # orca-slicer = { /* your orca-slicer flake URL here */ };
 
-    #doom-emacs = {
-    #url = "github:doomemacs/doom-emacs";
-    # pin to a commit/branch if you like, e.g. ref = "develop";
-    #};
   };
 
-  outputs = { self, nixpkgs-stable, nixpkgs-unstable, home-manager, ...}:
+  outputs = { self, nixpkgs-unstable, home-manager, ...}:
   let
     system = "x86_64-linux";
 
     # 1. Build two pkg sets with the same overlays
     unstablePkgs = import nixpkgs-unstable {
       inherit system;
-      #overlays = [ stylix.overlays ];
-    };
-    stablePkgs = import nixpkgs-stable {
-      inherit system;
-      #overlays = [ stylix.overlays ];
     };
 
+
     # 2. Merge: unstable overrides, stable provides the holes
-    pkgs = stablePkgs // unstablePkgs;
+    pkgs = unstablePkgs;
   in {
       # ---- NixOS hosts ----
       nixosConfigurations = {
