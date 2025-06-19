@@ -1,57 +1,89 @@
 {
-  description = "Multi-host Nix flake for knosence";
+  description = "Your new nix config";
 
   inputs = {
-    nixpkgs-unstable = { url = "github:NixOS/nixpkgs/nixos-unstable"; };
+    # Nixpkgs
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    # You can access packages and modules from different nixpkgs revs
+    # at the same time. Here's an working example:
+    nixpkgs-unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    # Also see the 'unstable-packages' overlay at 'overlays/default.nix'.
 
-    # home-manager tied to stable
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs-unstable";
-    };
-
-
+    # Home manager
+    home-manager.url = "github:nix-community/home-manager/release-24.11";
+    home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
-  outputs = { self, nixpkgs-unstable, home-manager, ...}:
-  let
-    system = "x86_64-linux";
-
-    # 1. Build two pkg sets with the same overlays
-    unstablePkgs = import nixpkgs-unstable {
-      inherit system;
-    };
-
+  outputs = {
+    self,
+    nixpkgs,
+    home-manager,
+    ...
+  } @ inputs: let
+    inherit (self) outputs;
+    # Supported systems for your flake packages, shell, etc.
+    systems = [
+      "aarch64-linux"
+      "i686-linux"
+      "x86_64-linux"
+      "aarch64-darwin"
+      "x86_64-darwin"
+    ];
+    # This is a function that generates an attribute by calling a function you
+    # pass to it, with each system as an argument
+    forAllSystems = nixpkgs.lib.genAttrs systems;
   in {
+    # Your custom packages
+    # Accessible through 'nix build', 'nix shell', etc
+    packages = forAllSystems (system: import ./pkgs nixpkgs.legacyPackages.${system});
+    # Formatter for your nix files, available through 'nix fmt'
+    # Other options beside 'alejandra' include 'nixpkgs-fmt'
+    formatter = forAllSystems (system: nixpkgs.legacyPackages.${system}.alejandra);
 
-      # ---- NixOS hosts ----
-      nixosConfigurations = {
-        framework13 = nixpkgs-unstable.lib.nixosSystem {
-          inherit unstablePkgs;
-          modules = [
-            ./Config/default.nix
-            ./Config/Hosts/framework13.nix
-          ];
-        };
-        pi-deck = nixpkgs-unstable.lib.nixosSystem {
-          system = "aarch64-linux";  # Pi architecture
-          inherit unstablePkgs;
-          modules = [
-            ./Config/default.nix
-            #./Config/Hosts/pi-deck.nix
-          ];
-        };
+    # Your custom packages and modifications, exported as overlays
+    # overlays = import ./overlays {inherit inputs;};
+    # Reusable nixos modules you might want to export
+    # These are usually stuff you would upstream into nixpkgs
+    # nixosModules = import ./modules/nixos;
+    # Reusable home-manager modules you might want to export
+    # These are usually stuff you would upstream into home-manager
+    # homeManagerModules = import ./modules/home-manager;
+
+    # NixOS configuration entrypoint
+    # Available through 'nixos-rebuild --flake .#your-hostname'
+    nixosConfigurations = {
+      # FIXME replace with your hostname
+      framework13 = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./Config/default.nix
+          ./Config/Hosts/framework13.nix
+        ];
       };
 
-      # ---- Home-manager profile ----
-      homeConfigurations = {
-        knosence = home-manager.lib.homeManagerConfiguration {
-          inherit unstablePkgs;
-          modules = [
+      pi-deck = nixpkgs.lib.nixosSystem {
+        system = "aarch64-linux";  # Pi architecture
+        specialArgs = {inherit inputs outputs;};
+        modules = [
+          ./Config/default.nix
+           #./Config/Hosts/pi-deck.nix
+        ];
+      };
+    };
+
+    # Standalone home-manager configuration entrypoint
+    # Available through 'home-manager --flake .#your-username@your-hostname'
+    homeConfigurations = {
+      # FIXME replace with your username@hostname
+      "knosence" = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
+        extraSpecialArgs = {inherit inputs outputs;};
+        modules = [
             ./Home/default.nix
             ./Home/Users/knosence.nix
-          ];
-        };
+        ];
       };
     };
+  };
 }
+
