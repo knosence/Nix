@@ -1,0 +1,78 @@
+#+TITLE: Nix Flake Project for knosence
+#+AUTHOR: knosence
+#+DATE: 2025-06-19
+
+* Project Structure
+
+#+BEGIN_SRC
+.
+├── flake.nix
+├── Config/
+│   ├── default.nix
+│   ├── Hosts/
+│   │   ├── framework13.nix
+│   │   └── pi-deck.nix
+│   ├── Modules/
+│   │   ├── hardware.nix
+│   │   ├── packages.nix
+│   │   └── users.nix
+│   └── Packages/
+│       └── default.nix
+├── Home/
+│   ├── default.nix
+│   ├── Modules/
+│   │   ├── networking.nix
+│   │   └── services.nix
+│   ├── Packages/
+│   │   ├── default.nix
+│   │   └── doom-emacs.nix
+│   └── Users/
+│       └── knosence.nix
+├── Scripts/
+│   └── Place.holder
+└── Shells/
+    └── place.holder
+#+END_SRC
+
+* How This Project is Set Up
+
+This repository uses Nix flakes to manage multiple NixOS hosts and Home Manager user environments in a modular, reproducible way. The structure is designed for clarity, reusability, and ease of scaling to more hosts or users.
+
+- ~flake.nix~: Entry point for the project. Defines inputs (Nixpkgs, Home Manager, overlays) and outputs (NixOS and Home Manager configurations).
+- ~Config/~: Contains all system-level (NixOS) configuration.
+  - ~Hosts/~: One file per host, e.g., ~framework13.nix~. Each imports hardware, user, and package modules.
+  - ~Modules/~: Reusable modules for hardware, users, and packages.
+  - ~Packages/~: (Optional) Custom or grouped package definitions.
+- ~Home/~: Contains all user-level (Home Manager) configuration.
+  - ~Users/~: One file per user, e.g., ~knosence.nix~. Each imports package modules and sets up the user environment.
+  - ~Modules/~: Reusable Home Manager modules (e.g., networking, services).
+  - ~Packages/~: User-level package definitions, e.g., ~doom-emacs.nix~.
+- ~Scripts/~ and ~Shells/~: Placeholders for custom scripts and shell environments.
+
+* Why This Setup?
+
+- **Modularity**: Each host and user is configured in its own file, making it easy to add, remove, or update systems and users.
+- **Reusability**: Common logic (hardware, users, packages) is factored into modules, reducing duplication.
+- **Reproducibility**: Flakes ensure that builds are consistent and can be reproduced exactly, even on different machines.
+- **Scalability**: Adding a new host or user is as simple as creating a new file and referencing it in ~flake.nix~.
+- **Separation of Concerns**: System and user configurations are kept separate, making it easier to manage and reason about each layer.
+
+* Getting Started
+
+1. Clone this repository.
+2. Edit ~flake.nix~ to add or remove hosts/users as needed.
+3. Add your configuration to the appropriate files in ~Config/~ and ~Home/~.
+4. Build or switch to a configuration:
+   - For NixOS: ~sudo nixos-rebuild switch --flake .#framework13~
+   - For Home Manager: ~home-manager switch --flake .#knosence~
+
+* Tips
+
+- Use the modules in ~Config/Modules/~ and ~Home/Modules/~ to keep your configs DRY and organized.
+- Document your customizations with comments in each file.
+- Pin your flake inputs for maximum reproducibility.
+
+* References
+- https://nixos.org/manual/nixos/stable/
+- https://nix-community.github.io/home-manager/index.html
+- https://nixos.wiki/wiki/Flakes
