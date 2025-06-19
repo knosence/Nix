@@ -14,8 +14,8 @@ let
 
   
 dropRTW88 = builtins.filter
-  (f: f != "rtw88-firmware")
-  pkgs.linuxPackages.firmwarePackages;
+  (f: f.name != "rtw88-firmware")
+  (pkgs.linux-firmware.packages or []);
 
 
 
