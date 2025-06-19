@@ -29,11 +29,11 @@
     # 1. Build two pkg sets with the same overlays
     unstablePkgs = import nixpkgs-unstable {
       inherit system;
-      overlays = [ stylix.overlays ];
+      #overlays = [ stylix.overlays ];
     };
     stablePkgs = import nixpkgs-stable {
       inherit system;
-      overlays = [ stylix.overlays ];
+      #overlays = [ stylix.overlays ];
     };
 
     # 2. Merge: unstable overrides, stable provides the holes
