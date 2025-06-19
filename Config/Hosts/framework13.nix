@@ -11,14 +11,7 @@ let
     userName = "knosence";
     userDesc = "NaDario Seays Sr.";
     userGroups = [ "networkmanager" "wheel" "dialout" ];
-
   
-dropRTW88 = builtins.filter
-  (f: f.name != "rtw88-firmware")
-  (pkgs.linux-firmware.packages or []);
-
-
-
 in {
   imports =
     [ # Include the results of the hardware scan.
@@ -29,9 +22,6 @@ in {
       ./../Modules/security.nix
       ./../Modules/services.nix
     ];
-
-    environment.systemPackages = dropRTW88;
-
     users.users.${userName} = {
       isNormalUser = true;
       description = userDesc;
