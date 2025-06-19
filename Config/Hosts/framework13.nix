@@ -13,9 +13,10 @@ let
     userGroups = [ "networkmanager" "wheel" "dialout" ];
 
   
-  dropRTW88 = builtins.filter
-    (f: f != "rtw88-firmware")
-    config.boot.kernelPackages.firmwarePackages;
+dropRTW88 = builtins.filter
+  (f: f != "rtw88-firmware")
+  pkgs.linuxPackages.firmwarePackages;
+
 
 
 in {
@@ -29,7 +30,7 @@ in {
       ./../Modules/services.nix
     ];
 
-   boot.kernelPackages.firmwarePackages = dropRTW88;
+    boot.kernelPackages.firmwarePackages = dropRTW88;
 
     users.users.${userName} = {
       isNormalUser = true;
