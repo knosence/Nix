@@ -26,16 +26,17 @@
     # 2. Merge: unstable overrides, stable provides the holes
     pkgs = unstablePkgs;
   in {
+
       # ---- NixOS hosts ----
       nixosConfigurations = {
-        framework13 = nixpkgs-stable.lib.nixosSystem {
+        framework13 = pkgs.lib.nixosSystem {
           inherit pkgs;
           modules = [
             ./Config/default.nix
             ./Config/Hosts/framework13.nix
           ];
         };
-        pi-deck = nixpkgs-stable.lib.nixosSystem {
+        pi-deck = pkgs.lib.nixosSystem {
           system = "aarch64-linux";  # Pi architecture
           inherit pkgs;
           modules = [
