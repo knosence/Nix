@@ -16,24 +16,24 @@
     stylix     = { url = "github:danth/stylix"; };
     # orca-slicer = { /* your orca-slicer flake URL here */ };
 
-    doom-emacs = {
-    url = "github:doomemacs/doom-emacs";
+    #doom-emacs = {
+    #url = "github:doomemacs/doom-emacs";
     # pin to a commit/branch if you like, e.g. ref = "develop";
-    };
+    #};
   };
 
-  outputs = { self, nixpkgs-stable, nixpkgs-unstable, stylix, doom-emacs, home-manager, ...}:
+  outputs = { self, nixpkgs-stable, nixpkgs-unstable, stylix, home-manager, ...}:
   let
     system = "x86_64-linux";
 
     # 1. Build two pkg sets with the same overlays
     unstablePkgs = import nixpkgs-unstable {
       inherit system;
-      overlays = [ stylix.overlay doom-emacs.overlay];
+      overlays = [ stylix.overlay ];
     };
     stablePkgs = import nixpkgs-stable {
       inherit system;
-      overlays = [ stylix.overlay doom-emacs.overlay];
+      overlays = [ stylix.overlay ];
     };
 
     # 2. Merge: unstable overrides, stable provides the holes
