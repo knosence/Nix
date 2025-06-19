@@ -53,7 +53,7 @@
           inherit pkgs;
           modules = [
             ./Config/default.nix
-            ./Config/Hosts/pi-deck.nix
+            #./Config/Hosts/pi-deck.nix
           ];
         };
       };

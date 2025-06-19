@@ -45,6 +45,11 @@
     #media-session.enable = true;
   };
 
+  hardware.pulseaudio.enable = false;
 
+  hardware.bluetooth = {
+    enable = true;
+    powerOnBoot = true;
+  };
 
 }
