@@ -79,18 +79,16 @@
       # FIXME replace with your username@hostname
       "knosence" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
-        extraSpecialArgs = {inherit inputs outputs;};
+        extraSpecialArgs = {
+          inherit inputs outputs release;
+          config = {
+            allowUnfree = true; # Allow unfree packages
+          };    
+        };
         modules = [
           ./Home/default.nix
           ./Home/Users/knosence.nix
         ];
-        extraSpecialArgs = {
-          # pass config variables from above
-          inherit release;
-          config = {
-             allowUnfree = true;
-           };
-        };
       };
     };
   };

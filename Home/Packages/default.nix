@@ -3,7 +3,7 @@
 
   home.packages = with pkgs; ([  
     # User-specific packages
-
+    brave
   ]);
   
   programs = {
