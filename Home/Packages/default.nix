@@ -8,7 +8,7 @@
   
   programs = {
     home-manager.enable = true;
-    firefox.enable = false; 
+    #firefox.enable = false; 
   };
 
   
