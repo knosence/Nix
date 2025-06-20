@@ -25,6 +25,7 @@
 
     # GUI applications
     libreoffice
+    firefox
     vlc
     thunderbird
     kdenlive
