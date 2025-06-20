@@ -27,7 +27,7 @@ in {
       description = userDesc;
       extraGroups = userGroups;
       packages = with pkgs; [ 
-        firefox
+
       ]; # User-specific packages can go here
     };
 
