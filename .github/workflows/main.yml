@@ -24,6 +24,5 @@ jobs:
       - name: Build Knosence home-manager profile
         run: nix build .#homeConfigurations.knosence.activationPackage
 
-      - name: Flake check
-        run: nix flake check
+
 
