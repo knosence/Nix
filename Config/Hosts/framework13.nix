@@ -26,7 +26,9 @@ in {
       isNormalUser = true;
       description = userDesc;
       extraGroups = userGroups;
-      packages = with pkgs; [ ]; # User-specific packages can go here
+      packages = with pkgs; [ 
+        firefox
+      ]; # User-specific packages can go here
     };
 
   system.stateVersion = "24.11"; # Did you read the comment?
