@@ -35,7 +35,5 @@
     spectacle
   ];
 
-  programs.firefox.enable = true;
-
 fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerdfonts);
 }
