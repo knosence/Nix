@@ -81,9 +81,6 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
           inherit inputs outputs release;
-          config = {
-            allowUnfree = true; # Allow unfree packages
-          };    
         };
         modules = [
           ./Home/default.nix
