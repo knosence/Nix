@@ -8,7 +8,7 @@
 # See also: ../Packages/ for package definitions
 #           ../Modules/ for reusable user modules (if any)
 
-{config, lib, pkgs, ...}:
+{config, lib, pkgs, release, ...}:
 let 
   userName = "knosence";
   userDirectory = "/home/${userName}";
@@ -26,6 +26,6 @@ in{
   home = {
     username = userName;
     homeDirectory = userDirectory;
-    stateVersion = "24.11";
+    stateVersion = release;
   };
 }

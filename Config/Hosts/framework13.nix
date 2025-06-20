@@ -6,7 +6,7 @@
 #
 # See also: ../Modules/ for hardware, package, and (optionally) user modules
 
-{ config, lib, pkgs, ... }:
+{ config, lib, pkgs, release, ... }:
 let
     userName = "knosence";
     userDesc = "NaDario Seays Sr.";
@@ -31,7 +31,7 @@ in {
       ]; # User-specific packages can go here
     };
 
-  system.stateVersion = "24.11"; # Did you read the comment?
+  system.stateVersion = release; # Did you read the comment?
 
    nix.settings.experimental-features = [
     "nix-command"

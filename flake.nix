@@ -56,7 +56,7 @@
     nixosConfigurations = {
       # FIXME replace with your hostname
       framework13 = nixpkgs.lib.nixosSystem {
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs release;};
         modules = [
           ./Config/default.nix
           ./Config/Hosts/framework13.nix
@@ -65,7 +65,7 @@
 
       pi-deck = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";  # Pi architecture
-        specialArgs = {inherit inputs outputs;};
+        specialArgs = {inherit inputs outputs release;};
         modules = [
           ./Config/default.nix
            #./Config/Hosts/pi-deck.nix
