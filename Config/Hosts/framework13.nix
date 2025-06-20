@@ -18,7 +18,6 @@ in {
       ./../Modules/boot.nix
       ./../Modules/hardware.nix
       ./../Modules/networking.nix
-      ./../Modules/packages.nix
       ./../Modules/security.nix
       ./../Modules/services.nix
       ./../Packages
