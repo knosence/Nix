@@ -1,3 +1,4 @@
+{config, pkgs, ...}:
 {
    home.packages = with pkgs; ([  
     #  Virtualization packages
