@@ -6,6 +6,12 @@ jobs:
   tests:
     runs-on: ubuntu-latest
     steps:
+      - name: Free up disk space
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc || true
+          sudo apt-get clean
+          df -h
+        
       - uses: actions/checkout@v4
 
       - uses: cachix/install-nix-action@v31
