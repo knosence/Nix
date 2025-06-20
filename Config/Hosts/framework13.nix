@@ -21,6 +21,7 @@ in {
       ./../Modules/packages.nix
       ./../Modules/security.nix
       ./../Modules/services.nix
+      ./..//vm.nix
     ];
     users.users.${userName} = {
       isNormalUser = true;

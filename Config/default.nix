@@ -2,12 +2,14 @@
 {
   environment.systemPackages = with pkgs; [
     # General utilities
-    vim
+    gnumake
+    helix
     git
     curl
     wget
     # Development tools
     gcc
+    
 
     # Add more packages as needed
   ];

@@ -32,6 +32,8 @@
     # This is a function that generates an attribute by calling a function you
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
+    release = "24.11"; # Nixpkgs release version
+
   in {
     # Your custom packages
     # Accessible through 'nix build', 'nix shell', etc
@@ -79,9 +81,16 @@
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {inherit inputs outputs;};
         modules = [
-            ./Home/default.nix
-            ./Home/Users/knosence.nix
+          ./Home/default.nix
+          ./Home/Users/knosence.nix
         ];
+        extraSpecialArgs = {
+          # pass config variables from above
+          inherit release;
+          config = {
+             allowUnfree = true;
+           };
+        };
       };
     };
   };
