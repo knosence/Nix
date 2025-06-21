@@ -11,9 +11,9 @@ in {
   };
 
   # Your Doom config files (you can symlink your real ones here)
-  home.file.".Home/Packages/Emacs/init.el".source = ./doom/init.el;
-  home.file.".Home/Packages/Emacs/config.el".source = ./doom/config.el;
-  home.file.".Home/Packages/Emacs/packages.el".source = ./doom/packages.el;
+  home.file.".config/doom/init.el".source = ./init.el;
+  home.file.".config/doom/config.el".source = ./config.el;
+  home.file.".config/doom/packages.el".source = ./packages.el;
 
   # Add supporting packages
   home.packages = with pkgs; [
