@@ -18,13 +18,24 @@
     glxinfo
     curl
     wget
+    neofetch
+    btop
+    bat
+    ripgrep
+    fd
+    tree
+    fzf
+    wl-clipboard
+    xclip
+
+
 
     # Development tools
     helix
     gcc
 
     # GUI applications
-    libreoffice
+    onlyoffice-bin_latest
     firefox
     vlc
     thunderbird
@@ -33,6 +44,9 @@
     okular
     kcalc
     spectacle
+    waveterm
+    gimp
+    inkscape
   ];
 
 fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerdfonts);
