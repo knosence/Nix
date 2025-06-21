@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   doomDir = "${config.home.homeDirectory}/.config/doom";
