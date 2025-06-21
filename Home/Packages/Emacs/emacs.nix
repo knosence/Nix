@@ -7,7 +7,7 @@ in {
   # Enable Emacs
   programs.emacs = {
     enable = true;
-    package = pkgs.emacs29;
+    package = pkgs.emacs;
   };
 
   # Your Doom config files (you can symlink your real ones here)
