@@ -62,6 +62,14 @@
         ];
       };
 
+      virtual = nixpkgs.lib.nixosSystem {
+        specialArgs = {inherit inputs outputs release;};
+        modules = [
+          ./Config/default.nix
+          ./Config/Hosts/virtual.nix
+        ];
+      };
+
       pi-deck = nixpkgs.lib.nixosSystem {
         system = "aarch64-linux";  # Pi architecture
         specialArgs = {inherit inputs outputs release;};
