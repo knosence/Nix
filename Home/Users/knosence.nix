@@ -18,7 +18,7 @@ in{
   imports = [
     ./../Packages 
     ./../Packages/vm.nix
-    ./../Packages/Emacs/emacs.nix
+    ./../Packages/Emacs
     
     #./../Modules/
   ];
