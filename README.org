@@ -6,32 +6,48 @@
 
 #+BEGIN_SRC
 .
-├── flake.nix
-├── Config/
-│   ├── default.nix
-│   ├── Hosts/
+├── Config
+│   ├── Hosts
 │   │   ├── framework13.nix
 │   │   └── pi-deck.nix
-│   ├── Modules/
+│   ├── Modules
+│   │   ├── boot.nix
 │   │   ├── hardware.nix
-│   │   ├── packages.nix
-│   │   └── users.nix
-│   └── Packages/
-│       └── default.nix
-├── Home/
-│   ├── default.nix
-│   ├── Modules/
+│   │   ├── networking.nix
+│   │   ├── security.nix
+│   │   └── services.nix
+│   ├── Packages
+│   │   └── default.nix
+│   └── default.nix
+├── Home
+│   ├── Modules
 │   │   ├── networking.nix
 │   │   └── services.nix
-│   ├── Packages/
+│   ├── Packages
+│   │   ├── Emacs
+│   │   │   ├── config.el
+│   │   │   ├── default.nix
+│   │   │   ├── init.el
+│   │   │   └── packages.el
+│   │   ├── Stylix
+│   │   │   ├── bg.jpg
+│   │   │   ├── catppucin-macchiato.yaml
+│   │   │   └── default.nix
+│   │   ├── Terminal
+│   │   │   ├── bat.nix
+│   │   │   ├── git.nix
+│   │   │   └── zsh.nix
 │   │   ├── default.nix
-│   │   └── doom-emacs.nix
-│   └── Users/
-│       └── knosence.nix
-├── Scripts/
+│   │   └── vm.nix
+│   ├── Users
+│   │   └── knosence.nix
+│   └── default.nix
+├── README.org
+├── Scripts
 │   └── Place.holder
-└── Shells/
-    └── place.holder
+├── Shells
+│   └── place.holder
+└── flake.nix
 #+END_SRC
 
 * How This Project is Set Up
@@ -71,6 +87,8 @@ This repository uses Nix flakes to manage multiple NixOS hosts and Home Manager 
 - Use the modules in ~Config/Modules/~ and ~Home/Modules/~ to keep your configs DRY and organized.
 - Document your customizations with comments in each file.
 - Pin your flake inputs for maximum reproducibility.
+
+This approach ensures that your terminal tool configurations are reproducible and version-controlled, just like the rest of your Nix-managed environment.
 
 * References
 - https://nixos.org/manual/nixos/stable/
