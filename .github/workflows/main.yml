@@ -21,6 +21,9 @@ jobs:
       - name: Build Framework13 NixOS image
         run: nix build .#nixosConfigurations.framework13.config.system.build.toplevel
 
+      - name: Build Virtual NixOS image
+        run: nix build .#nixosConfigurations.virtual.config.system.build.toplevel
+
       - name: Build Knosence home-manager profile
         run: nix build .#homeConfigurations.knosence.activationPackage
 

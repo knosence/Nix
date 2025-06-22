@@ -15,7 +15,6 @@ let
 in {
   imports =
     [ # Include the results of the hardware scan.
-      ./../Modules/boot.nix
       ./../Modules/networking.nix
       ./../Modules/security.nix
       ./../Modules/services.nix
