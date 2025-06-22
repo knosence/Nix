@@ -1,11 +1,11 @@
-{config, pkgs, ...}:
-{
-   home.packages = with pkgs; ([  
-    #  Virtualization packages
-    qemu_kvm
-    qemu
-    virt-manager-qt
-    virt-manager
-  ]);
+{ config, pkgs, ... }:
 
+{
+  home.packages = with pkgs; [
+    virt-manager
+  ];
+
+  # Optional: Add useful VM-related utilities
+  # like qemu, spice-gtk, etc.
+  programs.virt-manager.enable = true;
 }
