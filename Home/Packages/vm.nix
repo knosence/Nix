@@ -7,5 +7,5 @@
 
   # Optional: Add useful VM-related utilities
   # like qemu, spice-gtk, etc.
-  programs.virt-manager.enable = true;
+
 }
