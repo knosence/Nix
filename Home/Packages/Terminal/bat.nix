@@ -1,0 +1,15 @@
+{
+  home.file.".config/bat/config".text = ''
+    # Set the theme to "TwoDark"
+    # --theme="catppuccin"
+
+    # Show line numbers, Git modifications and file header (but no grid)
+    --style="numbers,changes,header"
+
+    # Use italic text on the terminal (not supported on all terminals)
+    --italic-text=always
+
+    # Use C++ syntax for Arduino .ino files
+    --map-syntax "*.ino:C++"
+  '';
+}
