@@ -22,6 +22,11 @@ in {
       ./../Modules/Hardware/virtual.nix
       ./../Packages
     ];
+
+    boot.loader.grub.enable = true;
+    boot.loader.grub.device = "/dev/vda";
+    boot.loader.grub.useOSProber = true;
+
     users.users.${userName} = {
       isNormalUser = true;
       description = userDesc;
