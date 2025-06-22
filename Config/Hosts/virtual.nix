@@ -16,10 +16,10 @@ in {
   imports =
     [ # Include the results of the hardware scan.
       ./../Modules/boot.nix
-      ./../Modules/vmhardware.nix
       ./../Modules/networking.nix
       ./../Modules/security.nix
       ./../Modules/services.nix
+      ./../Modules/Hardware/virtual.nix
       ./../Packages
     ];
     users.users.${userName} = {
