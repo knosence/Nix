@@ -88,7 +88,6 @@ This repository uses Nix flakes to manage multiple NixOS hosts and Home Manager 
 - Document your customizations with comments in each file.
 - Pin your flake inputs for maximum reproducibility.
 
-This approach ensures that your terminal tool configurations are reproducible and version-controlled, just like the rest of your Nix-managed environment.
 
 * References
 - https://nixos.org/manual/nixos/stable/
