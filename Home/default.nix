@@ -1,5 +1,4 @@
 {  config, pkgs, ... }:
 {
-  home.packages = with pkgs; [   
- ];
+ # goes across all host
 }
