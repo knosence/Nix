@@ -19,6 +19,9 @@ in{
     ./../Packages 
     ./../Packages/vm.nix
     ./../Packages/Emacs
+    ./../Packages/Terminal/bat.nix
+    ./../Packages/Terminal/zsh.nix
+    ./../Packages/Terminal/git.nix
     
     #./../Modules/
   ];

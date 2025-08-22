@@ -47,6 +47,8 @@
     waveterm
     gimp
     inkscape
+    emacs
+
   ];
 
 fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerdfonts);
