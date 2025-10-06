@@ -28,6 +28,8 @@ in
     fd
     coreutils
     clang
+    cmake
+    libtool
   ];
 
   home.activation.installOrSyncDoom = lib.hm.dag.entryAfter [ "linkGeneration" ] ''

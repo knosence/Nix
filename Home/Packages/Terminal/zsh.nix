@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, user, ... }:
 
 let
   zinitDir = "${config.xdg.dataHome}/zinit/zinit.git";
@@ -21,8 +21,7 @@ in {
       ls = "ls --color";
       vim = "nvim";
       c = "clear";
-      hm = "rm ~/.gtkrc-2.0 && cd ~/Nix && git add . && home-manager switch --flake .#home";
-      hm_ = "cd ~/Nix && git add . && home-manager switch --flake .#home";
+      hm = "cd ~/Nix && git add . && home-manager switch --flake .#${user}";
       n = "nvim";
       y = "yazi";
       sshv = "ssh biqu@Voron2.local";

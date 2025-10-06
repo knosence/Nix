@@ -33,6 +33,7 @@
     # pass to it, with each system as an argument
     forAllSystems = nixpkgs.lib.genAttrs systems;
     release = "24.11"; # Nixpkgs release version
+    user = "knosence";
 
   in {
     # Your custom packages
@@ -86,7 +87,7 @@
       "knosence" = home-manager.lib.homeManagerConfiguration {
         pkgs = nixpkgs.legacyPackages.x86_64-linux; # Home-manager requires 'pkgs' instance
         extraSpecialArgs = {
-          inherit inputs outputs release;
+          inherit inputs outputs release user;
         };
         modules = [
           ./Home/default.nix
