@@ -7,10 +7,7 @@
     telegram-desktop
     orca-slicer
     waveterm
-<<<<<<< HEAD
     blender
-=======
->>>>>>> 0fc610d (rm stupid git additions)
   ]);
 
 
