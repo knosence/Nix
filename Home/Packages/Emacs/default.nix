@@ -30,6 +30,7 @@ in
     clang
     cmake
     libtool
+texliveFull
   ];
 
   home.activation.installOrSyncDoom = lib.hm.dag.entryAfter [ "linkGeneration" ] ''

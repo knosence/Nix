@@ -1,0 +1,17 @@
+\contentsline {section}{\numberline {1}From Paycheck to Portfolio – My Automated Dividend Engine}{1}{section.1}%
+\contentsline {subsection}{\numberline {1.1}What the Paycheck-to-Portfolio Method Is}{1}{subsection.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.1}The Cash-Flow Loop Explained}{1}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {1.1.2}What Margin Really Is}{2}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {1.1.3}Why it’s powerful:}{2}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {1.1.4}Why It Works for Dividend Investors}{2}{subsubsection.1.1.4}%
+\contentsline {subsection}{\numberline {1.2}Your \$905 Savings System and Weekly Cash Flow}{2}{subsection.1.2}%
+\contentsline {subsubsection}{\numberline {1.2.1}The \$905 Buffer Concept}{2}{subsubsection.1.2.1}%
+\contentsline {subsubsection}{\numberline {1.2.2}The Margin Bridge}{3}{subsubsection.1.2.2}%
+\contentsline {subsubsection}{\numberline {1.2.3}Your Weekly Cash Flow (Keep in mind, M1 may not show the auto transfer results but I have never had any issues)}{3}{subsubsection.1.2.3}%
+\contentsline {subsubsection}{\numberline {1.2.4}Automation in Motion}{5}{subsubsection.1.2.4}%
+\contentsline {subsubsection}{\numberline {1.2.5}Portfolio Growth (for your chart)}{5}{subsubsection.1.2.5}%
+\contentsline {subsection}{\numberline {1.3}Scaling Phases, Glossary \& Checklist}{6}{subsection.1.3}%
+\contentsline {subsubsection}{\numberline {1.3.1}Section 1 – Scaling Phases: From \$500 to \$3 200 per Month}{6}{subsubsection.1.3.1}%
+\contentsline {subsubsection}{\numberline {1.3.2}Section 2 – Key Concept Glossary (18 terms)}{6}{subsubsection.1.3.2}%
+\contentsline {subsubsection}{\numberline {1.3.3}Section 3 – Quick-Start Checklist}{7}{subsubsection.1.3.3}%
+\contentsline {subsubsection}{\numberline {1.3.4}Closing Message}{8}{subsubsection.1.3.4}%
