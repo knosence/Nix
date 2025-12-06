@@ -1,8 +1,12 @@
 { config, pkgs, ... }:
 
 {
- # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_zen;
+  # Bootloader.
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariable = true;
+    };
+    kernelPackages = pkgs.linuxPackages_zen;
+  };
 }

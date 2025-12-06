@@ -1,8 +1,16 @@
-{ config, pkgs, user, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  user,
+  host,
+  ...
+}:
 
 let
   zinitDir = "${config.xdg.dataHome}/zinit/zinit.git";
-in {
+in
+{
   programs.zsh = {
     enable = true;
     enableCompletion = true;
@@ -22,20 +30,19 @@ in {
       vim = "nvim";
       c = "clear";
       hm = "cd ~/Nix && git add . && home-manager switch --flake .#${user}";
+      sy = "cd ~/Nix && git add . && sudo nixos-rebuild switch --flake .#${host}";
       n = "nvim";
       y = "yazi";
       sshv = "ssh biqu@Voron2.local";
       sshb = "ssh biqu@BlvMgnCub.local";
     };
 
-    initExtraFirst = ''
+    initContent = lib.mkBefore ''
       # Powerlevel10k instant prompt
       if [[ -r ''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh ]]; then
         source ''${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-''${(%):-%n}.zsh
       fi
-    '';
 
-    initExtra = ''
       # Add local bin to PATH
       export PATH=$HOME/.local/bin:$PATH
 
@@ -96,4 +103,3 @@ in {
     zsh
   ];
 }
-

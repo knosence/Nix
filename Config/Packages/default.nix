@@ -6,6 +6,9 @@
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
+
+  nixpkgs.config.allowUnfree = true;
+
   environment.systemPackages = with pkgs; [
     # General utilities
     epson-escpr
@@ -15,7 +18,7 @@
     git
     gnumake
     mesa
-    glxinfo
+    mesa-demos
     curl
     wget
     neofetch
@@ -35,15 +38,15 @@
     gcc
 
     # GUI applications
-    onlyoffice-bin_latest
+    onlyoffice-desktopeditors
     firefox
     vlc
     thunderbird
-    kdenlive
-    gwenview
-    okular
-    kcalc
-    spectacle
+    kdePackages.gwenview
+    kdePackages.kdenlive
+    kdePackages.okular
+    kdePackages.kcalc
+    kdePackages.spectacle
     waveterm
     gimp
     inkscape
@@ -51,5 +54,5 @@
 
   ];
 
-fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerdfonts);
+fonts.packages = [] ++ builtins.filter lib.attrsets.isDerivation (builtins.attrValues pkgs.nerd-fonts);
 }

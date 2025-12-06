@@ -8,8 +8,8 @@
     orca-slicer
     waveterm
     blender
+    freecad
   ]);
-
 
   imports = [
     ./../Packages/vm.nix
@@ -17,11 +17,16 @@
     ./../Packages/Terminal/bat.nix
     ./../Packages/Terminal/zsh.nix
     ./../Packages/Terminal/git.nix
-    ];
+  ];
+
+  nixpkgs.config.allowUnfree = true;
 
   programs = {
     home-manager.enable = true;
     brave.enable = true;
   };
 
+  home.file."/.config/nixpkgs/config.nix".text = ''
+    { allowUnfree = true; }
+  '';
 }

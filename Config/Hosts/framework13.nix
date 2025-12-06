@@ -31,6 +31,12 @@ in {
       ]; # User-specific packages can go here
     };
 
+    nixpkgs = {
+    config = {
+      allowUnfree = true;
+    };
+    };
+
   system.stateVersion = release; # Did you read the comment?
 
    nix.settings.experimental-features = [
